@@ -7,7 +7,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        gilda: ["Gilda Display", 'serif'],
+        roboto: ["Roboto", 'sans-serif'],
+      }
+    },
   },
   plugins: [daisyui],
 }
