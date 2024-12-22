@@ -34,7 +34,7 @@ export default function Banner() {
       >
         <SwiperSlide>
           <Slide
-            image={bgimg1}
+            image={bgimg3}
             title='Discover Luxury at Your Fingertips'
             text='"Browse through a selection of premium hotels and find your perfect room, all with just a few clicks.'
           />
@@ -48,7 +48,7 @@ export default function Banner() {
         </SwiperSlide>
         <SwiperSlide>
           <Slide
-            image={bgimg3}
+            image={bgimg1}
             title='Escape to Comfort and Style'
             text='Experience comfort and luxury like never before with our wide range of exclusive hotel options.'
           />
