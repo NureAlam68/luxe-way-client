@@ -10,7 +10,7 @@ const Navbar = () => {
    const {user, logOut} = useAuth();
 
     const links = <>
-        <li className="hover:text-blue-600"><NavLink to="/">Home</NavLink></li>
+        <li className="hover:text-[#C19B76]"><NavLink to="/">Home</NavLink></li>
         <li className="hover:text-[#C19B76]"><NavLink to="/rooms">Rooms</NavLink></li>
         <li className="hover:text-[#C19B76]"><NavLink to="/my-booking">My Bookings</NavLink></li>
         
