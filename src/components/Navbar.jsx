@@ -20,7 +20,7 @@ const Navbar = () => {
     <div className="py-4 md:py-6">
         <div className="navbar lg:gap-2 md:px-10 lg:px-5 xl:px-0 rounded-[16px] py-2 md:py-3 bg-white">
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown z-50">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
