@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch data from the MongoDB API
@@ -31,8 +33,8 @@ const Rooms = () => {
       {rooms.map((room) => (
         <div
           key={room._id}
-          className="bg-white rounded-lg overflow-hidden hover:scale-105 transition-transform border"
-          onClick={() => window.location.href = `/room-details/${room._id}`}
+          className="bg-white rounded-lg overflow-hidden hover:scale-105 transition-transform border cursor-pointer"
+          onClick={() => navigate(`/room/${room._id}`)}
         >
           <img
             src={room.image}
