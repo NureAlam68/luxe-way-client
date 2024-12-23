@@ -50,8 +50,7 @@ const Footer = () => {
             <li>Email: hello@luxeway.com</li>
             <li>Phone: +41 463 23 445</li>
             <li>
-              Address: 929 Border Street, <br />
-              Satellite Beach, FL 32937
+              Address: Uttara, Dhaka
             </li>
           </ul>
         </div>

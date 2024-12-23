@@ -1,6 +1,8 @@
 import Banner from "../components/Banner";
 import Facilities from "../components/Facilities";
 import HotelMap from "../components/HotelMap";
+import PromotionsSection from "../components/PromotionsSection";
+
 
 
 
@@ -10,6 +12,7 @@ const Home = () => {
             <Banner></Banner>
             <HotelMap></HotelMap>
             <Facilities></Facilities>
+            <PromotionsSection></PromotionsSection>
         </div>
     );
 };
