@@ -53,7 +53,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
       {
-        user ? <div className="dropdown dropdown-end">
+        user ? <div className="dropdown dropdown-end z-50">
         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
           <div className="w-10 rounded-full">
             <img
@@ -64,7 +64,7 @@ const Navbar = () => {
         <ul
           tabIndex={0}
           className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-          <li><Link to="/" onClick={logOut}>Logout</Link></li>
+          <li className="bg-gray-200 rounded-lg font-semibold"><Link to="/" onClick={logOut}>Logout</Link></li>
         </ul>
       </div> : <>
       <Link to="/login" className="px-4 py-1 bg-black hover:bg-[#C19B76] text-white font-bold ml-3">Login</Link>
