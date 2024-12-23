@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 
+
+
 const Main = () => {
     return (
         <div className="max-w-[1400px] mx-auto">

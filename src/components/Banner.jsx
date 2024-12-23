@@ -16,7 +16,7 @@ import bgimg3 from '../assets/bgRoom.jpg'
 
 export default function Banner() {
   return (
-    <div className='container mx-auto'>
+    <div className='w-full'>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
