@@ -3,9 +3,12 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import toast from 'react-hot-toast';
+import useAuth from '../hookes/useAuth';
 
 const RoomDetails = () => {
   const { id } = useParams();
+  const { user } = useAuth();
   const [room, setRoom] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,15 +19,33 @@ const RoomDetails = () => {
       .catch((error) => console.error(error));
   }, [id]);
 
-  const handleBooking = () => {
-    console.log('Booking confirmed for:', room.name, 'on', selectedDate);
-    setIsModalOpen(false);
+  const handleBooking = async () => {
+    if (!room?.isAvailable) {
+      return toast.error("Sorry, this room is no longer available.");
+    }
+
+    const bookingData = {
+      roomId: room._id,
+      email: user.email,
+      name: room.name,
+      pricePerNight: room.pricePerNight,
+      image: room.image,
+      selectedDate,
+    }
+
+    try {
+      await axios.post('http://localhost:5000/book-room', bookingData);
+      setIsModalOpen(false);
+      toast.success("Room booked successfully!");
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   if (!room) return <p>Loading...</p>;
 
   return (
-    <div className="p-8">
+    <div className="mt-10 md:mt-[60px] lg:mt-[80px] px-4 md:px-8 lg:px-10 min-h-screen">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <img src={room.image} alt={room.name} className="rounded-lg shadow-lg h-full" />
         <div>
