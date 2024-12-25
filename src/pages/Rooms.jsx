@@ -80,7 +80,7 @@ const Rooms = () => {
             <h2 className="text-xl font-semibold">{room.name}</h2>
             
             <div className="flex justify-between items-center mt-4">
-              <span className="text-green-600 font-semibold">
+              <span className="text-[#C19B76] font-semibold">
                 From ${room.pricePerNight}
               </span>
             </div>

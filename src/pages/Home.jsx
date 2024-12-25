@@ -4,6 +4,7 @@ import Facilities from "../components/Facilities";
 import HotelMap from "../components/HotelMap";
 import PromotionsSection from "../components/PromotionsSection";
 import UserReviews from "../components/UserReviews";
+import FeaturedRooms from "../components/FeaturedRooms";
 
 
 const Home = () => {
@@ -24,9 +25,10 @@ const Home = () => {
     <div className="relative">
       <Banner />
       <HotelMap />
+      <FeaturedRooms></FeaturedRooms>
+      <UserReviews></UserReviews>
       <Facilities />
       <PromotionsSection />
-      <UserReviews></UserReviews>
 
       {/* Modal */}
       {isOfferModalOpen && (
@@ -35,7 +37,7 @@ const Home = () => {
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-3 right-3 text-xl text-red-500 hover:text-red-700"
+              className="absolute top-3 right-3 text-3xl text-red-500 hover:text-red-700"
             >
               &times;
             </button>
