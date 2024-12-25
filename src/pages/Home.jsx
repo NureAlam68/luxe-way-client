@@ -7,6 +7,8 @@ import UserReviews from "../components/UserReviews";
 import FeaturedRooms from "../components/FeaturedRooms";
 
 
+
+
 const Home = () => {
   const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
 
@@ -39,12 +41,12 @@ const Home = () => {
               onClick={closeModal}
               className="absolute top-3 right-3 text-3xl text-red-500 hover:text-red-700"
             >
-              &times;
+              x
             </button>
 
             {/* Modal Content */}
             <h2 className="text-2xl font-bold text-center mb-4">
-              🎉 Special Offer! 🎉
+               Special Offer! 
             </h2>
             <p className="text-lg text-center mb-4">
               Enjoy up to <strong>50% off</strong> on selected rooms! Hurry,

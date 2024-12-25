@@ -5,9 +5,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
 import useAuth from "../hookes/useAuth";
-
+import useAxiosSecure from "../hookes/seAxiosSecure";
+import { FaStar } from "react-icons/fa";
 
 const RoomDetails = () => {
+  const axiosSecure = useAxiosSecure();
   const { id } = useParams();
   const { user } = useAuth();
   const [room, setRoom] = useState(null);
@@ -30,10 +32,6 @@ const RoomDetails = () => {
   }, [id]);
 
   const handleBooking = async () => {
-    if (!user) {
-      toast.error("You must log in to book a room.");
-    }
-
     if (!selectedDate) {
       return toast.error("Please select a booking date before proceeding.");
     }
@@ -52,10 +50,10 @@ const RoomDetails = () => {
     };
 
     try {
-      await axios.post("http://localhost:5000/book-room", bookingData);
+      await axiosSecure.post("/book-room", bookingData);
       setIsModalOpen(false);
       toast.success("Room booked successfully!");
-      navigate('/myBookings')
+      navigate("/myBookings");
     } catch (error) {
       toast.error(error.message);
     }
@@ -94,8 +92,13 @@ const RoomDetails = () => {
               {reviews.map((review, index) => (
                 <div key={index} className="border-b pb-4 mb-4">
                   <p className="flex items-center gap-1">
-                    <strong>{review.username}:</strong> <span className="text-yellow-500">
-                      {"★".repeat(review.rating)}
+                    <strong>{review.username}:</strong>
+                    <span className="text-yellow-500 flex">
+                      {Array(Number(review.rating)) 
+                        .fill(0)
+                        .map((_, i) => (
+                          <FaStar key={i} />
+                        ))}
                     </span>
                   </p>
                   <p>{review.comment}</p>

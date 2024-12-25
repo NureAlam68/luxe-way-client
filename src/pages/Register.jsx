@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAuth from "../hookes/useAuth";
 
+
 const Register = () => {
 
   const {signInWithGoogle, setUser, createUser, updateUserProfile} = useAuth();

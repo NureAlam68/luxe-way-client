@@ -3,8 +3,7 @@ import Slider from "react-slick";
 import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-
+import { FaStar } from "react-icons/fa6";
 
 const UserReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -14,7 +13,7 @@ const UserReviews = () => {
     const fetchReviews = async () => {
       try {
         const { data } = await axios.get("http://localhost:5000/reviews");
-        setReviews(data); 
+        setReviews(data);
       } catch (error) {
         console.error("Error fetching reviews:", error);
       }
@@ -36,14 +35,14 @@ const UserReviews = () => {
     arrows: false,
     responsive: [
       {
-        breakpoint: 1024, 
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 765, 
+        breakpoint: 765,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -63,7 +62,7 @@ const UserReviews = () => {
                 <div key={review._id} className="p-2">
                   <div
                     className="p-8 border border-black bg-black text-white rounded-lg flex flex-col justify-between"
-                    style={{ minHeight: "250px" }} 
+                    style={{ minHeight: "250px" }}
                   >
                     <div className="flex items-center mb-4">
                       <img
@@ -75,8 +74,12 @@ const UserReviews = () => {
                     </div>
                     <p className="text-gray-400 flex-grow">{review.comment}</p>
                     <div className="flex items-center mt-2">
-                      <span className="text-yellow-500">
-                        {"★".repeat(review.rating)}
+                      <span className="text-yellow-500 flex">
+                        {Array(Number(review.rating))
+                          .fill(0)
+                          .map((_, i) => (
+                            <FaStar key={i} />
+                          ))}
                       </span>
                       <span className="text-gray-300 ml-2">
                         {new Date(review.timestamp).toLocaleString()}

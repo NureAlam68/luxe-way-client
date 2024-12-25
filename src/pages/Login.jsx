@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import toast from "react-hot-toast";
 import useAuth from "../hookes/useAuth";
 
+
 const Login = () => {
   const { logInUser, setUser, signInWithGoogle } = useAuth();
 

@@ -6,8 +6,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../hookes/useAuth";
 import Swal from "sweetalert2";
 import moment from "moment";
+import useAxiosSecure from "../hookes/seAxiosSecure";
 
 const MyBookings = () => {
+  const axiosSecure = useAxiosSecure()
   const { user } = useAuth();
   const [bookings, setBookings] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -20,11 +22,11 @@ const MyBookings = () => {
 
   // Fetch bookings
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/my-bookings/${user.email}`)
+    axiosSecure
+      .get(`/my-bookings/${user.email}`)
       .then((res) => setBookings(res.data))
       .catch((error) => console.error(error));
-  }, [user.email]);
+  }, [axiosSecure, user.email]);
 
   // Cancel booking with SweetAlert and success check
   const handleCancelBooking = (id, bookingDate) => {
