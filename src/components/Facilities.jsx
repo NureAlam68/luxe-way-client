@@ -1,4 +1,5 @@
-
+// import { motion } from "framer-motion";
+// import { motion } from "motion/react"
 
 const locations = [
   {
@@ -38,7 +39,13 @@ const Facilities = () => {
     <div className="mt-10 md:mt-[60px] lg:mt-[80px]">
       {/* Section Title */}
 
-      <h1 className="text-2xl sm:text-3xl font-semibold text-center">
+      {/* <motion.h1
+      animate={{ x: 50 }}
+       className="text-2xl sm:text-3xl font-semibold text-center">
+        Our Facilities
+      </motion.h1> */}
+      <h1
+       className="text-2xl sm:text-3xl font-semibold text-center">
         Our Facilities
       </h1>
       {/* Section Description */}

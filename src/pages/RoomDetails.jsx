@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import useAuth from "../hookes/useAuth";
 import useAxiosSecure from "../hookes/seAxiosSecure";
 import { FaStar } from "react-icons/fa";
+import Loading from "../components/Loading";
 
 const RoomDetails = () => {
   const axiosSecure = useAxiosSecure();
@@ -59,7 +60,7 @@ const RoomDetails = () => {
     }
   };
 
-  if (!room) return <p>Loading...</p>;
+  if (!room) return <Loading></Loading>;
 
   return (
     <div className="mt-10 md:mt-[60px] lg:mt-[80px] px-4 md:px-8 lg:px-10 min-h-screen">

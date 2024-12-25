@@ -18,7 +18,6 @@ const MyBookings = () => {
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   const [review, setReview] = useState({ rating: 1, comment: "" });
 
-  // console.log(user);
 
   // Fetch bookings
   useEffect(() => {

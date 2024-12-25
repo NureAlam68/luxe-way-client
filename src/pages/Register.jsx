@@ -38,13 +38,11 @@ const Register = () => {
     try {
       //2. User Registration
       const result = await createUser(email, password)
-      console.log(result)
       await updateUserProfile(name, photo)
       setUser({ ...result.user, photoURL: photo, displayName: name })
       toast.success('Signup Successful')
       navigate('/')
     } catch (err) {
-      console.log(err)
       toast.error(err?.message)
     }
   }
