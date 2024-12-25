@@ -4,31 +4,66 @@ import { useNavigate } from "react-router-dom";
 
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
+  const [minPrice, setMinPrice] = useState(null);
+  const [maxPrice, setMaxPrice] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch data from the MongoDB API
     const fetchRooms = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/rooms");
+        const response = await axios.get("http://localhost:5000/rooms", {
+          params: {
+            minPrice,
+            maxPrice
+          }
+        });
         setRooms(response.data);
-      } catch (error) {
+      }  catch (error) {
         console.error("Error fetching rooms:", error);
       }
     };
 
     fetchRooms();
-  }, []);
+  }, [minPrice, maxPrice]);
+
+  const resetFilters = () => {
+    setMinPrice(null);
+    setMaxPrice(null);
+  };
 
   return (
     <div className="min-h-screen mt-8 md:mt-[50px] xl:mt-[70px]">
         <h1 className="text-2xl sm:text-3xl font-semibold text-center">
         Explore Luxe Stays
       </h1>
-      {/* Section Description */}
-      <p className="text-center text-base md:text-xl text-gray-600 mt-2 md:mt-4 px-4 mb-4 md:mb-8 lg:mb-10 w-[95%] lg:w-[70%] mx-auto">
-      Find your perfect stay with LuxeWay’s curated selection of elegant and comfortable rooms. Experience luxury tailored to your needs, wherever you go.
-      </p>
+       {/* Filter Section */}
+       <div className="my-4 text-center">
+        <h2 className="text-sm font-semibold mb-4">Filter by Price Range</h2>
+        <div className="flex justify-center items-center mb-4">
+          <input
+            type="number"
+            value={minPrice || ''} 
+            onChange={(e) => setMinPrice(e.target.value ? parseInt(e.target.value) : null)}  
+            placeholder="Min Price"
+            className="px-4 py-2 border border-gray-300 rounded-lg mr-4 w-[100px] md:w-auto"
+          />
+          <input
+            type="number"
+            value={maxPrice || ''}  
+            onChange={(e) => setMaxPrice(e.target.value ? parseInt(e.target.value) : null)}  
+            placeholder="Max Price"
+            className="px-4 py-2 border border-gray-300 rounded-lg w-[100px] md:w-auto"
+          />
+          <button
+          onClick={resetFilters}
+          className="px-6 py-2 bg-black text-white  hover:bg-[#C19B76] ml-1"
+        >
+          Reset
+        </button>
+        </div>
+        
+      </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
       {rooms.map((room) => (
         <div

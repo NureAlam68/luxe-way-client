@@ -3,7 +3,7 @@ import promotion from "../assets/lottie/promotions.json";
 
 const PromotionsSection = () => {
   return (
-    <section className="bg-white mt-10 md:mt-[60px] lg:mt-[80px] px-4 md:px-8 2xl:px-0">
+    <section className="bg-white mt-10 md:mt-[60px] lg:mt-[80px] 2xl:mt-[120px] px-4 md:px-8 2xl:px-0">
       <div className="flex flex-col lg:flex-row items-stretch justify-between gap-10">
         {/* Left Section */}
         <div className="w-full lg:w-1/2 flex items-center justify-center">

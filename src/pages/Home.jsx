@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import Facilities from "../components/Facilities";
 import HotelMap from "../components/HotelMap";
 import PromotionsSection from "../components/PromotionsSection";
+import UserReviews from "../components/UserReviews";
 
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
       <HotelMap />
       <Facilities />
       <PromotionsSection />
+      <UserReviews></UserReviews>
 
       {/* Modal */}
       {isOfferModalOpen && (
