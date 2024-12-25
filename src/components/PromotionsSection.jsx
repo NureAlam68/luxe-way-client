@@ -13,7 +13,7 @@ const PromotionsSection = () => {
         {/* Right Section */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center">
           <h4 className="text-gray-500 uppercase text-3xl lg:text-4xl tracking-wider">
-            Best Summer Offers
+            Best Winter Offers
           </h4>
           <div className="flex flex-col gap-6 mt-6 md:mt-8 lg:mt-10">
             {/* Offer Item */}
@@ -21,21 +21,21 @@ const PromotionsSection = () => {
               {
                 title: "Small Room",
                 duration: "One week",
-                price: "$50",
+                price: "$400",
                 image:
                   "https://i.ibb.co.com/TYyszNx/3d-rendering-beautiful-comtemporary-luxury-bedroom-suite-hotel-with-tv.jpg",
               },
               {
                 title: "Family Suite",
                 duration: "Two weeks",
-                price: "$100",
+                price: "$600",
                 image:
                   "https://i.ibb.co.com/ZMcZTRJ/mother-daughter-using-digital-tablet-bedroom.jpg",
               },
               {
                 title: "Apartments",
                 duration: "One month",
-                price: "$200",
+                price: "$900",
                 image:
                   "https://i.ibb.co.com/2PCmCrN/modern-luxury-bedroom-suite-bathroom.jpg",
               },

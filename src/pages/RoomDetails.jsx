@@ -1,10 +1,11 @@
-import  { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import toast from 'react-hot-toast';
-import useAuth from '../hookes/useAuth';
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import toast from "react-hot-toast";
+import useAuth from "../hookes/useAuth";
+
 
 const RoomDetails = () => {
   const { id } = useParams();
@@ -12,14 +13,31 @@ const RoomDetails = () => {
   const [room, setRoom] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [reviews, setReviews] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/room/${id}`)
+    axios
+      .get(`http://localhost:5000/room/${id}`)
       .then((response) => setRoom(response.data))
+      .catch((error) => console.error(error));
+
+    // Fetch reviews for the room
+    axios
+      .get(`http://localhost:5000/reviews/${id}`)
+      .then((response) => setReviews(response.data))
       .catch((error) => console.error(error));
   }, [id]);
 
   const handleBooking = async () => {
+    if (!user) {
+      toast.error("You must log in to book a room.");
+    }
+
+    if (!selectedDate) {
+      return toast.error("Please select a booking date before proceeding.");
+    }
+
     if (!room?.isAvailable) {
       return toast.error("Sorry, this room is no longer available.");
     }
@@ -31,12 +49,13 @@ const RoomDetails = () => {
       pricePerNight: room.pricePerNight,
       image: room.image,
       selectedDate,
-    }
+    };
 
     try {
-      await axios.post('http://localhost:5000/book-room', bookingData);
+      await axios.post("http://localhost:5000/book-room", bookingData);
       setIsModalOpen(false);
       toast.success("Room booked successfully!");
+      navigate('/myBookings')
     } catch (error) {
       toast.error(error.message);
     }
@@ -47,35 +66,63 @@ const RoomDetails = () => {
   return (
     <div className="mt-10 md:mt-[60px] lg:mt-[80px] px-4 md:px-8 lg:px-10 min-h-screen">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <img src={room.image} alt={room.name} className="rounded-lg shadow-lg h-full" />
+        <img
+          src={room.image}
+          alt={room.name}
+          className="rounded-lg shadow-lg h-full"
+        />
         <div>
-        <h1 className="text-3xl font-bold mb-4">{room.name}</h1>
-          <p><strong>Price per night:</strong> ${room.pricePerNight}</p>
-          <p><strong>Capacity:</strong> {room.capacity} persons</p>
-          <p><strong>Size:</strong> {room.size} sqm</p>
-          <p><strong>Description:</strong> {room.description}</p>
-          <p><strong>Total Reviews:</strong> {room.totalReviews}</p>
-          {room.reviews?.length ? (
-        <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-4">Reviews</h2>
-          {room.reviews.map((review, index) => (
-            <div key={index} className="border-b pb-4 mb-4">
-              <p><strong>{review.username}</strong> - {review.rating}★</p>
-              <p>{review.comment}</p>
+          <h1 className="text-3xl font-bold mb-4">{room.name}</h1>
+          <p>
+            <strong>Price per night:</strong> ${room.pricePerNight}
+          </p>
+          <p>
+            <strong>Capacity:</strong> {room.capacity} persons
+          </p>
+          <p>
+            <strong>Size:</strong> {room.size} sqm
+          </p>
+          <p>
+            <strong>Description:</strong> {room.description}
+          </p>
+          <p>
+            <strong>Total Reviews:</strong> {room.totalReviews}
+          </p>
+          {reviews.length ? (
+            <div className="mt-8">
+              <h2 className="text-2xl font-bold mb-4">Reviews</h2>
+              {reviews.map((review, index) => (
+                <div key={index} className="border-b pb-4 mb-4">
+                  <p className="flex items-center gap-1">
+                    <strong>{review.username}:</strong> <span className="text-yellow-500">
+                      {"★".repeat(review.rating)}
+                    </span>
+                  </p>
+                  <p>{review.comment}</p>
+                  <p className="text-sm text-gray-500">
+                    Posted on: {new Date(review.timestamp).toLocaleString()}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      ) : (
-        <p className="mt-8 text-gray-500">No reviews available for this room.</p>
-      )}
-      <button
+          ) : (
+            <p className="mt-8 text-gray-500">
+              No reviews available for this room.
+            </p>
+          )}
+          <button
             className="bg-black text-white px-4 py-2 mt-4 hover:bg-[#C19B76] font-semibold"
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => {
+              if (!user) {
+                navigate("/login");
+              } else {
+                setIsModalOpen(true);
+              }
+            }}
           >
             Book Now
           </button>
         </div>
-        
       </div>
 
       {/* Booking Modal */}
@@ -83,11 +130,19 @@ const RoomDetails = () => {
         <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-8 rounded-lg shadow-lg w-96">
             <h2 className="text-xl font-bold mb-4">Booking Summary</h2>
-            <p><strong>Room:</strong> {room.name}</p>
-            <p><strong>Price per night:</strong> ${room.pricePerNight}</p>
-            <p><strong>Description:</strong> {room.description}</p>
+            <p>
+              <strong>Room:</strong> {room.name}
+            </p>
+            <p>
+              <strong>Price per night:</strong> ${room.pricePerNight}
+            </p>
+            <p>
+              <strong>Description:</strong> {room.description}
+            </p>
             <div className="mt-4">
-              <label className="block text-gray-700">Select Booking Date:</label>
+              <label className="block text-gray-700">
+                Select Booking Date:
+              </label>
               <DatePicker
                 selected={selectedDate}
                 onChange={(date) => setSelectedDate(date)}
