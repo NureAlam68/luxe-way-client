@@ -21,13 +21,13 @@ const RoomDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/room/${id}`)
+      .get(`https://luxe-way-server.vercel.app/room/${id}`)
       .then((response) => setRoom(response.data))
       .catch((error) => console.error(error));
 
     // Fetch reviews for the room
     axios
-      .get(`http://localhost:5000/reviews/${id}`)
+      .get(`https://luxe-way-server.vercel.app/reviews/${id}`)
       .then((response) => setReviews(response.data))
       .catch((error) => console.error(error));
   }, [id]);
