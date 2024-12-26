@@ -1,32 +1,37 @@
-import axios from 'axios'
-import useAuth from './useAuth'
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import axios from "axios";
+import useAuth from "./useAuth";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://luxe-way-server.vercel.app",
   withCredentials: true,
-})
+});
+
+// https://luxe-way-server.vercel.app
+// https://luxe-way-server.vercel.app
+
+// https://luxe-way-server.vercel.app
 
 const useAxiosSecure = () => {
-  const navigate = useNavigate()
-  const { logOut } = useAuth()
+  const navigate = useNavigate();
+  const { logOut } = useAuth();
   useEffect(() => {
     axiosSecure.interceptors.response.use(
-      res => {
-        return res
+      (res) => {
+        return res;
       },
-      async error => {
+      async (error) => {
         if (error.response.status === 401 || error.response.status === 403) {
           // logout
-          logOut()
+          logOut();
           // navigate to login
-          navigate('/login')
+          navigate("/login");
         }
       }
-    )
-  }, [logOut, navigate])
-  return axiosSecure
-}
+    );
+  }, [logOut, navigate]);
+  return axiosSecure;
+};
 
-export default useAxiosSecure
+export default useAxiosSecure;

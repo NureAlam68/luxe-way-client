@@ -21,13 +21,13 @@ const RoomDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/room/${id}`)
+      .get(`https://luxe-way-server.vercel.app/room/${id}`)
       .then((response) => setRoom(response.data))
       .catch((error) => console.error(error));
 
     // Fetch reviews for the room
     axios
-      .get(`http://localhost:5000/reviews/${id}`)
+      .get(`https://luxe-way-server.vercel.app/reviews/${id}`)
       .then((response) => setReviews(response.data))
       .catch((error) => console.error(error));
   }, [id]);
@@ -95,7 +95,7 @@ const RoomDetails = () => {
                   <p className="flex items-center gap-1">
                     <strong>{review.username}:</strong>
                     <span className="text-yellow-500 flex">
-                      {Array(Number(review.rating)) 
+                      {Array(Number(review.rating))
                         .fill(0)
                         .map((_, i) => (
                           <FaStar key={i} />

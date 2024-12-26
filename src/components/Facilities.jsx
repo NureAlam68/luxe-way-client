@@ -1,5 +1,5 @@
-// import { motion } from "framer-motion";
-// import { motion } from "motion/react"
+import { motion } from "framer-motion";
+import { fadeIn } from "./variants";
 
 const locations = [
   {
@@ -29,7 +29,7 @@ const locations = [
   },
   {
     id: 6,
-    src: "https://i.ibb.co.com/2PCmCrN/modern-luxury-bedroom-suite-bathroom.jpg", 
+    src: "https://i.ibb.co.com/2PCmCrN/modern-luxury-bedroom-suite-bathroom.jpg",
     alt: "Hotel Bedroom",
   },
 ];
@@ -37,36 +37,37 @@ const locations = [
 const Facilities = () => {
   return (
     <div className="mt-10 md:mt-[60px] lg:mt-[80px]">
-      {/* Section Title */}
-
-      {/* <motion.h1
-      animate={{ x: 50 }}
-       className="text-2xl sm:text-3xl font-semibold text-center">
-        Our Facilities
-      </motion.h1> */}
-      <h1
-       className="text-2xl sm:text-3xl font-semibold text-center">
-        Our Facilities
-      </h1>
-      {/* Section Description */}
-      <p className="text-center text-base md:text-xl text-gray-600 mt-2 md:mt-4 px-4 mb-4 md:mb-8 lg:mb-10 w-[95%] lg:w-[70%] mx-auto">
-        Explore our luxurious facilities, from exquisite dining areas to
-        breathtaking views and delicious cuisines. We ensure an unforgettable
-        experience for all our guests.
-      </p>
-      {/* Image Grid */}
+      <motion.div
+        variants={fadeIn("up", 0.2)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <h1 className="text-2xl sm:text-3xl font-semibold text-center">
+          Our Facilities
+        </h1>
+        <p className="text-center text-base md:text-xl text-gray-600 mt-2 md:mt-4 px-4 mb-4 md:mb-8 lg:mb-10 w-[95%] lg:w-[70%] mx-auto">
+          Explore our luxurious facilities, from exquisite dining areas to
+          breathtaking views and delicious cuisines. We ensure an unforgettable
+          experience for all our guests.
+        </p>
+      </motion.div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 px-4 md:px-8 2xl:px-0">
         {locations.map((location) => (
-          <div
+          <motion.div
+            variants={fadeIn("up", 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
             key={location.id}
             className="overflow-hidden rounded-lg shadow-md group h-[300px]"
           >
             <img
               src={location.src}
               alt={location.alt}
-              className="w-full h-full transition-transform duration-300 group-hover:scale-110"
+              className="w-full h-full transition-transform duration-500 group-hover:scale-110"
             />
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
