@@ -4,14 +4,15 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
-  baseURL: "https://luxe-way-server.vercel.app",
+  baseURL: "http://localhost:5000",
   withCredentials: true,
 });
 
-// https://luxe-way-server.vercel.app
-// https://luxe-way-server.vercel.app
+// http://localhost:5000
+// http://localhost:5000
 
-// https://luxe-way-server.vercel.app
+// http://localhost:5000
+//https://luxe-way-server.vercel.app
 
 const useAxiosSecure = () => {
   const navigate = useNavigate();
