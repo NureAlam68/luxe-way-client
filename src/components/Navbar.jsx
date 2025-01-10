@@ -8,17 +8,20 @@ const Navbar = () => {
 
   const links = (
     <>
-      <li className="hover:text-[#C19B76]">
+      <li className="hover:text-[#c2772c]">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="hover:text-[#C19B76]">
+      <li className="hover:text-[#c2772c]">
         <NavLink to="/rooms">Rooms</NavLink>
       </li>
       {
-        user && <li className="hover:text-[#C19B76]">
+        user && <li className="hover:text-[#c2772c]">
         <NavLink to="/myBookings">My Bookings</NavLink>
       </li>
       }
+      <li className="hover:text-[#c2772c]">
+        <NavLink to="/aboutUs">About Us</NavLink>
+      </li>
     </>
   );
 

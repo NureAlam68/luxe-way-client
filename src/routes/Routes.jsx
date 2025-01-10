@@ -8,6 +8,7 @@ import Rooms from "../pages/Rooms";
 import RoomDetails from "../pages/RoomDetails";
 import MyBookings from "../pages/MyBookings";
 import PrivetRoute from "./PrivateRoute";
+import AboutUs from "../pages/AboutUs";
 
 
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register></Register>
+            },
+            {
+                path: "/aboutUs",
+                element: <AboutUs></AboutUs>
             }
         ]
     }
