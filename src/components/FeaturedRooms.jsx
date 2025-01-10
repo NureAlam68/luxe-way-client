@@ -13,7 +13,7 @@ const FeaturedRooms = () => {
     const fetchFeaturedRooms = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/featured-rooms"
+          "https://luxe-way-server.vercel.app/featured-rooms"
         );
         setFeaturedRooms(response.data);
       } catch (error) {

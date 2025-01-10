@@ -47,7 +47,7 @@ const MyBookings = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/cancel-booking/${id}`)
+          .delete(`https://luxe-way-server.vercel.app/cancel-booking/${id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               Swal.fire({
@@ -92,7 +92,7 @@ const MyBookings = () => {
     try {
       // Using PATCH to update only the selected date
       await axios.patch(
-        `http://localhost:5000/update-booking/${currentBooking._id}`,
+        `https://luxe-way-server.vercel.app/update-booking/${currentBooking._id}`,
         {
           selectedDate: new Date(selectedDate).toISOString(),
         }
@@ -123,7 +123,10 @@ const MyBookings = () => {
         comment: review.comment,
         timestamp: new Date(),
       };
-      await axios.post("http://localhost:5000/reviews", reviewData);
+      await axios.post(
+        "https://luxe-way-server.vercel.app/reviews",
+        reviewData
+      );
       toast.success("Review submitted successfully!");
       setIsReviewModalOpen(false);
     } catch (error) {
