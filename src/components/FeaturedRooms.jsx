@@ -25,7 +25,7 @@ const FeaturedRooms = () => {
   }, []);
 
   return (
-    <div className="featured-rooms-section mt-10 md:mt-[60px] lg:mt-[80px] 2xl:mt-[120px]">
+    <div className="featured-rooms-section mt-10 md:mt-[60px] lg:mt-[80px] 2xl:mt-[120px] max-w-[1400px] mx-auto">
       <motion.h2
         variants={fadeIn("up", 0.2)}
         initial="hidden"
@@ -35,7 +35,7 @@ const FeaturedRooms = () => {
       >
         Top-rated Rooms
       </motion.h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4 md:mt-8 lg:mt-10 px-4 md:px-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4 md:mt-8 lg:mt-10 px-4 md:px-8 2xl:px-0">
         {featuredRooms.map((room) => (
           <motion.div
             variants={fadeIn("up", 0.2)}

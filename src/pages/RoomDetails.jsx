@@ -63,8 +63,11 @@ const RoomDetails = () => {
   if (!room) return <Loading></Loading>;
 
   return (
-    <div className="mt-10 md:mt-[60px] lg:mt-[80px] px-4 md:px-8 lg:px-10 min-h-screen">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="mt-10 md:mt-[60px] lg:mt-[80px] px-4 md:px-8 lg:px-10 min-h-screen max-w-[1400px] mx-auto">
+      <h1 className="text-2xl sm:text-3xl font-semibold text-center">
+        Room Details
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 md:mt-10">
         <img
           src={room.image}
           alt={room.name}

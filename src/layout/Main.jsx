@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 const Main = () => {
     return (
-        <div className="max-w-[1400px] mx-auto font-gilda">
+        <div className="font-gilda">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

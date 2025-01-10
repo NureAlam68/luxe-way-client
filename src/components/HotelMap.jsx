@@ -6,7 +6,7 @@ const HotelMap = () => {
   const position = [23.8686, 90.4007];
 
   return (
-    <div className="hotel-map mt-10 md:mt-[60px] lg:mt-[80px]">
+    <div className="hotel-map mt-10 md:mt-[60px] lg:mt-[80px] max-w-[1400px] mx-auto">
       {/* Title and Description */}
       <div className="map-header text-center mb-4 md:mb-8 lg:mb-10">
         <h2 className="text-2xl sm:text-3xl font-semibold">LuxeWay Hotel</h2>

@@ -3,7 +3,7 @@ import promotion from "../assets/lottie/promotions.json";
 
 const PromotionsSection = () => {
   return (
-    <section className="bg-white mt-10 md:mt-[60px] lg:mt-[80px] 2xl:mt-[120px] px-4 md:px-8 2xl:px-0">
+    <section className="bg-white mt-10 md:mt-[60px] lg:mt-[80px] 2xl:mt-[120px] px-4 md:px-8 2xl:px-0 max-w-[1400px] mx-auto">
       <h4 className="text-gray-500 uppercase text-3xl lg:text-4xl tracking-wider text-center">
         Best Winter Offers
       </h4>

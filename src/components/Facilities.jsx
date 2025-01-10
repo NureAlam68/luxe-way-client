@@ -36,7 +36,7 @@ const locations = [
 
 const Facilities = () => {
   return (
-    <div className="mt-10 md:mt-[60px] lg:mt-[80px]">
+    <div className="mt-10 md:mt-[60px] lg:mt-[80px] max-w-[1400px] mx-auto">
       <motion.div
         variants={fadeIn("up", 0.2)}
         initial="hidden"

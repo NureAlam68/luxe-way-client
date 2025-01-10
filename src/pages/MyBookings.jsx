@@ -132,7 +132,7 @@ const MyBookings = () => {
   };
 
   return (
-    <div className="container mx-auto mt-10 min-h-screen">
+    <div className="container mt-10 lg:mt-20 min-h-screen max-w-[1400px] mx-auto">
       <h1 className="text-2xl font-bold mb-6 text-center">My Bookings</h1>
       <table className="table-auto w-full border-collapse border border-gray-300">
         <thead>
