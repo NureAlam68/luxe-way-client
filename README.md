@@ -66,23 +66,13 @@ cd luxeway
 ```sh
 npm install
 ```
-### 3️⃣ Set Up Environment Variables
-Create a `.env` file in the root directory and add the necessary environment variables:
-```env
-VITE_apiKey=AIzaSyCOHt2IRh7zG7CzSKUDam2EOL-nRBJT13k
-VITE_authDomain=luxe-way-2a039.firebaseapp.com
-VITE_projectId=luxe-way-2a039
-VITE_storageBucket=luxe-way-2a039.firebasestorage.app
-VITE_messagingSenderId=841023631165
-VITE_appId=1:841023631165:web:fe3835cbf168b0d9931f54
-```
 
-### 4️⃣ Start the Development Server
+### 3️⃣ Start the Development Server
 ```sh
 npm run dev
 ```
 
-### 5️⃣ Build for Production
+### 4️⃣ Build for Production
 ```sh
 npm run build
 ```
