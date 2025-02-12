@@ -23,42 +23,42 @@ const HotelMap = () => {
         {/* Map and Contact Info Grid */}
         <div className="grid lg:grid-cols-3 gap-8 items-start">
           {/* Contact Information */}
-          <div className="lg:col-span-1 p-8 bg-black dark:bg-[#f0d5ba] h-full">
-            <h3 className="text-2xl font-semibold mb-6 text-white dark:text-black">Contact Details</h3>
+          <div className="lg:col-span-1 p-8 bg-black dark:bg-gray-800 h-full">
+            <h3 className="text-2xl font-semibold mb-6 text-white">Contact Details</h3>
             
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
                 <MapPin className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                 <div>
-                  <h4 className="font-medium text-white dark:text-gray-900">Address</h4>
-                  <p className="text-white/80 dark:text-gray-900 mt-1">123 Luxury Avenue, Sector 13</p>
-                  <p className="text-white/80 dark:text-gray-900">Uttara, Dhaka 1230</p>
+                  <h4 className="font-medium text-white">Address</h4>
+                  <p className="text-white/80 mt-1">123 Luxury Avenue, Sector 13</p>
+                  <p className="text-white/80">Uttara, Dhaka 1230</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
                 <Phone className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                 <div>
-                  <h4 className="font-medium text-white dark:text-gray-900">Phone</h4>
-                  <p className="text-white/80 dark:text-gray-900 mt-1">+880 2-123456</p>
-                  <p className="text-white/80 dark:text-gray-900">+880 1711-123456</p>
+                  <h4 className="font-medium text-white">Phone</h4>
+                  <p className="text-white/80 mt-1">+880 2-123456</p>
+                  <p className="text-white/80">+880 1711-123456</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
                 <Mail className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                 <div>
-                  <h4 className="font-medium text-white dark:text-gray-900">Email</h4>
-                  <p className="text-white/80 dark:text-gray-900 mt-1">info@luxewayhotel.com</p>
+                  <h4 className="font-medium text-white">Email</h4>
+                  <p className="text-white/80 mt-1">info@luxewayhotel.com</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
                 <Clock className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                 <div>
-                  <h4 className="font-medium text-white dark:text-gray-900">Check-in/out</h4>
-                  <p className="text-white/80 dark:text-gray-900 mt-1">Check-in: 2:00 PM</p>
-                  <p className="text-white/80 dark:text-gray-900">Check-out: 12:00 PM</p>
+                  <h4 className="font-medium text-white">Check-in/out</h4>
+                  <p className="text-white/80 mt-1">Check-in: 2:00 PM</p>
+                  <p className="text-white/80">Check-out: 12:00 PM</p>
                 </div>
               </div>
             </div>

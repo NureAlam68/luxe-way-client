@@ -71,7 +71,7 @@ const Rooms = () => {
         {rooms.map((room) => (
           <div
             key={room._id}
-            className="bg-white dark:bg-[#f5cda5] rounded-lg overflow-hidden hover:scale-105 transition-transform border cursor-pointer"
+            className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform border cursor-pointer"
             onClick={() => navigate(`/room/${room._id}`)}
           >
             <img
@@ -80,10 +80,10 @@ const Rooms = () => {
               className="w-full h-[300px] object-cover"
             />
             <div className="p-4">
-              <h2 className="text-xl font-semibold">{room.name}</h2>
+              <h2 className="text-xl font-semibold dark:text-white">{room.name}</h2>
 
               <div className="flex justify-between items-center mt-4">
-                <span className="text-[#C19B76] font-semibold dark:text-black/80">
+                <span className="text-[#C19B76] font-semibold dark:text-white/80">
                   From ${room.pricePerNight}
                 </span>
               </div>

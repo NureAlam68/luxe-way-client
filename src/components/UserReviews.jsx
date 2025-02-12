@@ -61,7 +61,7 @@ const UserReviews = () => {
               {reviews.map((review) => (
                 <div key={review._id} className="p-2">
                   <div
-                    className="p-8 border border-black bg-black text-white rounded-lg flex flex-col justify-between dark:bg-[#C19B76]"
+                    className="p-8 border border-black bg-black text-white rounded-lg flex flex-col justify-between dark:bg-gray-800"
                     style={{ minHeight: "250px" }}
                   >
                     <div className="flex items-center mb-4">
@@ -70,18 +70,18 @@ const UserReviews = () => {
                         alt={review.username}
                         className="w-12 h-12 rounded-full mr-4"
                       />
-                      <p className="text-lg font-semibold dark:text-black">{review.username}</p>
+                      <p className="text-lg font-semibold">{review.username}</p>
                     </div>
-                    <p className="text-gray-400 flex-grow dark:text-black">{review.comment}</p>
+                    <p className="text-gray-400 flex-grow">{review.comment}</p>
                     <div className="flex items-center mt-2">
-                      <span className="text-yellow-500 flex dark:text-black">
+                      <span className="text-yellow-500 flex">
                         {Array(Number(review.rating))
                           .fill(0)
                           .map((_, i) => (
                             <FaStar key={i} />
                           ))}
                       </span>
-                      <span className="text-gray-300 ml-2 dark:text-black">
+                      <span className="text-gray-300 ml-2">
                         {new Date(review.timestamp).toLocaleString()}
                       </span>
                     </div>

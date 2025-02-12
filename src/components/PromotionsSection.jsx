@@ -14,7 +14,7 @@ const PromotionsSection = () => {
         </div>
 
         {/* Right Section */}
-        <div className="flex flex-col justify-center bg-gray-100 min-h-[400px] p-6 dark:bg-[#C19B76]">
+        <div className="flex flex-col justify-center bg-gray-100 min-h-[400px] p-6 dark:bg-gray-800">
           <div className="flex flex-col gap-6">
             {[{
               title: "Small Room",

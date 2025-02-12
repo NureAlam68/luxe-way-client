@@ -35,7 +35,7 @@ const Home = () => {
       {/* Modal */}
       {isOfferModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-30 z-50">
-          <div className="bg-white dark:bg-[#362a1d] p-4 rounded-lg shadow-lg max-w-sm w-full relative">
+          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg max-w-sm w-full relative">
             {/* Close Button */}
             <button
               onClick={closeModal}

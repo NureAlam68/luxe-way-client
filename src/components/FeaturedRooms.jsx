@@ -43,7 +43,7 @@ const FeaturedRooms = () => {
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
             key={room._id}
-            className="room-card bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl flex flex-col dark:bg-[#C19B76]"
+            className="room-card bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl flex flex-col dark:bg-gray-800"
           >
             <img
               src={room.image}
@@ -62,7 +62,7 @@ const FeaturedRooms = () => {
                 >
                   See More
                 </button>
-                <span className="text-[#C19B76] font-semibold dark:text-black">
+                <span className="text-[#C19B76] font-semibold dark:text-white">
                   From ${room.pricePerNight}
                 </span>
               </div>
