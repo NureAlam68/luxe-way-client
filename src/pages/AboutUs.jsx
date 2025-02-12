@@ -2,10 +2,10 @@ import { FaHotel, FaUsers, FaHandshake, FaGlobe, FaConciergeBell, FaStar } from 
 
 const AboutUs = () => {
   return (
-    <div className="bg-black text-white py-16 px-6 md:px-16 lg:px-32 min-h-screen">
+    <div className="dark:bg-black py-16 px-6 md:px-16 lg:px-32 min-h-screen">
       <div className='max-w-[1400px] mx-auto'>
-      <h2 className="text-4xl font-bold text-center text-[#C19B76] mb-8">About LuxeWay</h2>
-      <p className="text-center text-lg max-w-3xl mx-auto mb-12">
+      <h2 className="text-4xl font-bold text-center dark:text-[#C19B76] mb-8">About LuxeWay</h2>
+      <p className="text-center text-lg max-w-3xl mx-auto mb-12 dark:text-white">
         LuxeWay is a modern hotel booking platform designed to offer a seamless experience for travelers looking for luxury and comfort.
       </p>
       

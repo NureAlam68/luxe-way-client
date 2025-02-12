@@ -34,12 +34,12 @@ const Rooms = () => {
 
   return (
     <div className="min-h-screen mt-8 md:mt-[50px] xl:mt-[70px] max-w-[1400px] mx-auto">
-      <h1 className="text-2xl sm:text-3xl font-semibold text-center">
+      <h1 className="text-2xl sm:text-3xl font-semibold text-center dark:text-white">
         Explore Luxe Stays
       </h1>
       {/* Filter Section */}
       <div className="my-4 text-center">
-        <h2 className="text-sm font-semibold mb-4">Filter by Price Range</h2>
+        <h2 className="text-sm font-semibold mb-4 dark:text-white/80">Filter by Price Range</h2>
         <div className="flex justify-center items-center mb-4">
           <input
             type="number"
@@ -61,7 +61,7 @@ const Rooms = () => {
           />
           <button
             onClick={resetFilters}
-            className="px-6 py-2 bg-black text-white  hover:bg-[#C19B76] ml-1"
+            className="px-6 py-2 bg-black text-white  hover:bg-[#C19B76] ml-1 dark:bg-[#C19B76]"
           >
             Reset
           </button>
@@ -71,7 +71,7 @@ const Rooms = () => {
         {rooms.map((room) => (
           <div
             key={room._id}
-            className="bg-white rounded-lg overflow-hidden hover:scale-105 transition-transform border cursor-pointer"
+            className="bg-white dark:bg-[#f5cda5] rounded-lg overflow-hidden hover:scale-105 transition-transform border cursor-pointer"
             onClick={() => navigate(`/room/${room._id}`)}
           >
             <img
@@ -83,7 +83,7 @@ const Rooms = () => {
               <h2 className="text-xl font-semibold">{room.name}</h2>
 
               <div className="flex justify-between items-center mt-4">
-                <span className="text-[#C19B76] font-semibold">
+                <span className="text-[#C19B76] font-semibold dark:text-black/80">
                   From ${room.pricePerNight}
                 </span>
               </div>

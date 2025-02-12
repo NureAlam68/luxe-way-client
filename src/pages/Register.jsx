@@ -70,15 +70,15 @@ const Register = () => {
         className="w-full max-w-lg p-3"
       >
         <h2 className="text-sm font-semibold text-center text-blue-500">Register</h2>
-        <h1 className="text-2xl font-bold text-center text-gray-800">Start for free Today</h1>
-        <p className="text-sm text-center text-gray-500 mb-6">
+        <h1 className="text-2xl font-bold text-center text-gray-800 dark:text-white">Start for free Today</h1>
+        <p className="text-sm text-center text-gray-500 mb-6 dark:text-white/80">
           Access to all features. No credit card required.
         </p>
 
         <button
         onClick={handleGoogleLogIn}
           type="button"
-          className="flex items-center justify-center w-full px-4 py-2 mb-4 font-medium text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100"
+          className="flex items-center justify-center w-full px-4 py-2 mb-4 font-medium text-gray-700 border border-gray-300 rounded-lg dark:text-white/80"
         >
           <img
             src="https://www.svgrepo.com/show/355037/google.svg"
@@ -89,13 +89,13 @@ const Register = () => {
         </button>
 
         <div className="relative flex items-center justify-center mb-4">
-          <span className="absolute px-2 text-sm text-gray-500 bg-white">Or continue with</span>
+          <span className="absolute px-2 text-sm text-gray-500 bg-white dark:text-black">Or continue with</span>
           <div className="w-full border-t border-gray-300"></div>
         </div>
 
         <div className="space-y-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-white">
               Full Name *
             </label>
             <input
@@ -107,7 +107,7 @@ const Register = () => {
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-white">
               Email *
             </label>
             <input
@@ -119,7 +119,7 @@ const Register = () => {
             />
           </div>
           <div>
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="username" className="block text-sm font-medium text-gray-700 dark:text-white">
               Photo Url *
             </label>
             <input
@@ -131,7 +131,7 @@ const Register = () => {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-white">
               Password *
             </label>
             <input
@@ -146,12 +146,12 @@ const Register = () => {
 
         <button
           type="submit"
-          className="w-full px-4 py-2 mt-4 font-medium text-white bg-black rounded-md hover:bg-[#C19B76]"
+          className="w-full px-4 py-2 mt-4 font-medium text-white bg-black rounded-md hover:bg-[#C19B76] dark:bg-[#C19B76]"
         >
           Register
         </button>
 
-        <p className="mt-4 text-sm text-center text-gray-600">
+        <p className="mt-4 text-sm text-center text-gray-600 dark:text-white/80">
           Already have an account? <Link to="/login" className="text-blue-500 cursor-pointer">Sign in</Link>
         </p>
       </form>
