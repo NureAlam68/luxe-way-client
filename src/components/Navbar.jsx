@@ -2,26 +2,26 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/hotel.svg";
 import "./Navbar.css";
 import useAuth from "../hookes/useAuth";
-import toggle_light from "../assets/night.png"
-import toggle_dark from "../assets/day.png"
+import toggle_light from "../assets/night.png";
+import toggle_dark from "../assets/day.png";
 import { useEffect, useState } from "react";
+import { BiLogOut } from "react-icons/bi";
 
-// eslint-disable-next-line react/prop-types
 const Navbar = () => {
   const { user, logOut } = useAuth();
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   useEffect(() => {
     if (theme === "dark") {
-      document.documentElement.classList.add("dark")
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark")
+      document.documentElement.classList.remove("dark");
     }
-    localStorage.setItem("theme", theme)
-  }, [theme])
+    localStorage.setItem("theme", theme);
+  }, [theme]);
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"))
-  }
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
 
   const links = (
     <>
@@ -31,32 +31,31 @@ const Navbar = () => {
       <li className="hover:text-[#c2772c]">
         <NavLink to="/rooms">Rooms</NavLink>
       </li>
-      {
-        user && <li className="hover:text-[#c2772c]">
-        <NavLink to="/myBookings">My Bookings</NavLink>
-      </li>
-      }
+      {user && (
+        <li className="hover:text-[#c2772c]">
+          <NavLink to="/myBookings">My Bookings</NavLink>
+        </li>
+      )}
       <li className="hover:text-[#c2772c]">
         <NavLink to="/aboutUs">About Us</NavLink>
       </li>
     </>
   );
 
-
   return (
     <div className="pt-16">
-      <div className="fixed top-0 left-0 w-full bg-[#e9e6e3] shadow-sm z-50 ">
-        <div className="navbar lg:gap-2 md:px-10 lg:px-5 xl:px-0 rounded-[16px] py-2 md:py-4 max-w-[1400px] mx-auto">
+      <div className="fixed top-0 left-0 w-full bg-[#e9e6e3] dark:bg-black shadow-sm z-50 dark:border-b dark:border-b-slate-600">
+        <div className="navbar px-4 lg:gap-2 md:px-8 2xl:px-0 rounded-[16px] py-2 md:py-4 max-w-[1400px] mx-auto">
           <div className="navbar-start">
             <div className="dropdown z-50">
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost lg:hidden"
+                className="lg:hidden mr-4"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="w-6 h-6 dark:text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -71,7 +70,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className=" menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                className="menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow dark:bg-[#f0d5ba]"
               >
                 {links}
               </ul>
@@ -81,16 +80,23 @@ const Navbar = () => {
               className="text-[20px] md:text-[28px] lg:text-[32px] font-bold flex items-center gap-1"
             >
               <img className="h-5 lg:h-7" src={logo} alt="" />
-              <span>LuxeWay</span>
+              <span className="dark:text-white">LuxeWay</span>
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className=" menu-horizontal lg:text-sm xl:text-base font-medium space-x-5 xl:space-x-8">
+            <ul className="menu-horizontal lg:text-sm xl:text-base font-medium space-x-5 xl:space-x-8 dark:text-white">
               {links}
             </ul>
           </div>
           <div className="navbar-end">
-            <img onClick={() => {toggleTheme()}} src={theme == 'light' ? toggle_light : toggle_dark} alt="" className="w-10 cursor-pointer mr-5"/>
+            <img
+              onClick={() => {
+                toggleTheme();
+              }}
+              src={theme == "light" ? toggle_light : toggle_dark}
+              alt=""
+              className="w-8 cursor-pointer mr-5"
+            />
             {user ? (
               <div className="dropdown dropdown-end z-50">
                 <div
@@ -104,11 +110,14 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow dark:bg-black"
                 >
-                  <li className="bg-gray-200 rounded-lg font-semibold">
+                  <li className="bg-gray-200 dark:bg-[#C19B76] dark:text-black rounded-lg font-semibold">
                     <Link to="/" onClick={logOut}>
-                      Logout
+                      <span className="flex items-center">
+                        <BiLogOut className="w-4 h-4 mr-2" />
+                        Sign out
+                      </span>
                     </Link>
                   </li>
                 </ul>
@@ -117,7 +126,7 @@ const Navbar = () => {
               <>
                 <Link
                   to="/login"
-                  className="px-4 py-1 bg-black hover:bg-[#C19B76] text-white font-bold ml-3"
+                  className="px-4 py-1 bg-black hover:bg-[#C19B76] dark:bg-[#C19B76] text-white font-bold ml-3"
                 >
                   Login
                 </Link>

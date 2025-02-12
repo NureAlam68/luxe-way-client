@@ -54,7 +54,7 @@ const UserReviews = () => {
   return (
     <div className="mt-10 md:mt-[60px] lg:mt-[80px] 2xl:mt-[120px] max-w-[1400px] mx-auto">
       <h1 className="text-3xl font-bold text-center mb-6">User Reviews</h1>
-      <div className="px-4 md:px-8 2xl:px-0">
+      <div className="px-2 md:px-6 2xl:px-0">
         {reviews.length > 0 ? (
           reviews.length > 1 ? (
             <Slider {...settings}>
