@@ -31,7 +31,7 @@ const FeaturedRooms = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
-        className="text-center text-2xl md:text-3xl font-semibold my-6"
+        className="text-center text-2xl md:text-4xl font-semibold my-6 dark:text-white"
       >
         Top-rated Rooms
       </motion.h2>
@@ -43,7 +43,7 @@ const FeaturedRooms = () => {
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
             key={room._id}
-            className="room-card bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl flex flex-col"
+            className="room-card bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl flex flex-col dark:bg-[#C19B76]"
           >
             <img
               src={room.image}
@@ -52,17 +52,17 @@ const FeaturedRooms = () => {
             />
             <div className="p-4 flex flex-col justify-between flex-grow">
               <div>
-                <h3 className="text-xl font-semibold">{room.name}</h3>
-                <p className="text-sm text-gray-600 mt-2">{room.description}</p>
+                <h3 className="text-xl font-semibold dark:text-white">{room.name}</h3>
+                <p className="text-sm text-gray-600 mt-2 dark:text-white/80">{room.description}</p>
               </div>
               <div className="mt-4 flex justify-between items-center">
                 <button
                   onClick={() => navigate(`/room/${room._id}`)}
-                  className="bg-[#C19B76] hover:bg-black text-white font-semibold px-4 py-2 transition-colors duration-300"
+                  className="bg-[#C19B76] hover:bg-black dark:bg-black text-white font-semibold px-4 py-2 transition-colors duration-300"
                 >
                   See More
                 </button>
-                <span className="text-[#C19B76] font-semibold">
+                <span className="text-[#C19B76] font-semibold dark:text-black">
                   From ${room.pricePerNight}
                 </span>
               </div>

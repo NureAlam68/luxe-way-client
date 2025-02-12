@@ -53,7 +53,7 @@ const UserReviews = () => {
 
   return (
     <div className="mt-10 md:mt-[60px] lg:mt-[80px] 2xl:mt-[120px] max-w-[1400px] mx-auto">
-      <h1 className="text-3xl font-bold text-center mb-6">User Reviews</h1>
+      <h1 className="text-2xl md:text-3xl font-bold text-center mb-6 dark:text-white">User Reviews</h1>
       <div className="px-2 md:px-6 2xl:px-0">
         {reviews.length > 0 ? (
           reviews.length > 1 ? (
@@ -61,7 +61,7 @@ const UserReviews = () => {
               {reviews.map((review) => (
                 <div key={review._id} className="p-2">
                   <div
-                    className="p-8 border border-black bg-black text-white rounded-lg flex flex-col justify-between"
+                    className="p-8 border border-black bg-black text-white rounded-lg flex flex-col justify-between dark:bg-[#C19B76]"
                     style={{ minHeight: "250px" }}
                   >
                     <div className="flex items-center mb-4">
@@ -70,18 +70,18 @@ const UserReviews = () => {
                         alt={review.username}
                         className="w-12 h-12 rounded-full mr-4"
                       />
-                      <p className="text-lg font-semibold">{review.username}</p>
+                      <p className="text-lg font-semibold dark:text-black">{review.username}</p>
                     </div>
-                    <p className="text-gray-400 flex-grow">{review.comment}</p>
+                    <p className="text-gray-400 flex-grow dark:text-black">{review.comment}</p>
                     <div className="flex items-center mt-2">
-                      <span className="text-yellow-500 flex">
+                      <span className="text-yellow-500 flex dark:text-black">
                         {Array(Number(review.rating))
                           .fill(0)
                           .map((_, i) => (
                             <FaStar key={i} />
                           ))}
                       </span>
-                      <span className="text-gray-300 ml-2">
+                      <span className="text-gray-300 ml-2 dark:text-black">
                         {new Date(review.timestamp).toLocaleString()}
                       </span>
                     </div>

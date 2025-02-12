@@ -3,8 +3,8 @@ import promotion from "../assets/lottie/promotions.json";
 
 const PromotionsSection = () => {
   return (
-    <section className="bg-white mt-10 md:mt-[60px] lg:mt-[80px] 2xl:mt-[120px] px-4 md:px-8 2xl:px-0 max-w-[1400px] mx-auto">
-      <h4 className="text-gray-500 uppercase text-3xl lg:text-4xl tracking-wider text-center">
+    <section className="bg-white mt-10 md:mt-[60px] lg:mt-[80px] 2xl:mt-[120px] px-4 md:px-8 2xl:px-0 max-w-[1400px] mx-auto dark:bg-black">
+      <h4 className="text-gray-500 dark:text-white uppercase text-3xl lg:text-4xl tracking-wider text-center">
         Best Winter Offers
       </h4>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-4 md:mt-8 lg:mt-10">
@@ -14,7 +14,7 @@ const PromotionsSection = () => {
         </div>
 
         {/* Right Section */}
-        <div className="flex flex-col justify-center bg-gray-100 min-h-[400px] p-6">
+        <div className="flex flex-col justify-center bg-gray-100 min-h-[400px] p-6 dark:bg-[#C19B76]">
           <div className="flex flex-col gap-6">
             {[{
               title: "Small Room",

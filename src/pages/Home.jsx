@@ -35,7 +35,7 @@ const Home = () => {
       {/* Modal */}
       {isOfferModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-30 z-50">
-          <div className="bg-white p-4 rounded-lg shadow-lg max-w-sm w-full relative">
+          <div className="bg-white dark:bg-[#362a1d] p-4 rounded-lg shadow-lg max-w-sm w-full relative">
             {/* Close Button */}
             <button
               onClick={closeModal}
@@ -45,10 +45,10 @@ const Home = () => {
             </button>
 
             {/* Modal Content */}
-            <h2 className="text-2xl font-bold text-center mb-4">
+            <h2 className="text-2xl font-bold text-center mb-4 dark:text-white">
                Special Offer! 
             </h2>
-            <p className="text-lg text-center mb-4">
+            <p className="text-lg text-center mb-4 dark:text-white/80">
               Enjoy up to <strong>50% off</strong> on selected rooms! Hurry,
               book now!
             </p>

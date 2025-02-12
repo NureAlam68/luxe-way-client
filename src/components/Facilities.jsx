@@ -43,10 +43,10 @@ const Facilities = () => {
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <h1 className="text-2xl sm:text-3xl font-semibold text-center">
+        <h1 className="text-2xl md:text-4xl font-semibold text-center dark:text-white">
           Our Facilities
         </h1>
-        <p className="text-center text-base md:text-xl text-gray-600 mt-2 md:mt-4 px-4 mb-4 md:mb-8 lg:mb-10 w-[95%] lg:w-[70%] mx-auto">
+        <p className="text-center text-base md:text-xl text-gray-600 mt-2 md:mt-4 px-4 mb-4 md:mb-8 lg:mb-10 w-[95%] lg:w-[70%] mx-auto dark:text-white/80">
           Explore our luxurious facilities, from exquisite dining areas to
           breathtaking views and delicious cuisines. We ensure an unforgettable
           experience for all our guests.

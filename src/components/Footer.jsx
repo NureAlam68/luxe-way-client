@@ -2,8 +2,8 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaTripadvisor } from "react-icons/
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-10 px-6 lg:px-20 mt-10 md:mt-[60px] lg:mt-[80px] 2xl:mt-[120px]">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+    <footer className="bg-black text-white py-10 px-4 md:px-8 mt-10 md:mt-[60px] lg:mt-[80px] 2xl:mt-[120px] dark:border-t">
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* About Us Section */}
         <div>
           <h3 className="text-lg font-semibold mb-4">About Us</h3>
@@ -55,7 +55,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="border-t border-gray-700 mt-8 pt-4">
+      <div className="max-w-[1400px] mx-auto border-t border-gray-700 mt-8 pt-4">
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <p>Copyright © 2000 by LuxeWay</p>
           <div className="flex space-x-4 mt-4 md:mt-0 hover:cursor-pointer">
