@@ -47,7 +47,7 @@ const MyBookings = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/cancel-booking/${id}`)
+          .delete(`https://luxe-way-server.vercel.app/cancel-booking/${id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               Swal.fire({
@@ -86,7 +86,7 @@ const MyBookings = () => {
 
     try {
       await axios.patch(
-        `http://localhost:5000/update-booking/${currentBooking._id}`,
+        `https://luxe-way-server.vercel.app/update-booking/${currentBooking._id}`,
         {
           selectedDate: new Date(selectedDate).toISOString(),
         }
@@ -116,7 +116,10 @@ const MyBookings = () => {
         comment: review.comment,
         timestamp: new Date(),
       };
-      await axios.post("http://localhost:5000/reviews", reviewData);
+      await axios.post(
+        "https://luxe-way-server.vercel.app/reviews",
+        reviewData
+      );
       toast.success("Review submitted successfully!");
       setIsReviewModalOpen(false);
     } catch (error) {
@@ -128,8 +131,12 @@ const MyBookings = () => {
     <div className="mt-10 md:mt-[60px] lg:mt-[80px] px-4 md:px-8 2xl:px-0 min-h-screen max-w-[1400px] mx-auto">
       <div>
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2 dark:text-white">My Bookings</h1>
-          <p className="text-gray-600 dark:text-white/80">Manage your upcoming stays and experiences</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-2 dark:text-white">
+            My Bookings
+          </h1>
+          <p className="text-gray-600 dark:text-white/80">
+            Manage your upcoming stays and experiences
+          </p>
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
@@ -137,15 +144,26 @@ const MyBookings = () => {
             <table className="w-full">
               <thead className="bg-gray-50 dark:bg-gray-800">
                 <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600 dark:text-white">Property</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600 dark:text-white">Details</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600 dark:text-white">Date</th>
-                  <th className="px-6 py-4 text-right text-sm font-semibold text-gray-600 dark:text-white">Actions</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600 dark:text-white">
+                    Property
+                  </th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600 dark:text-white">
+                    Details
+                  </th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-600 dark:text-white">
+                    Date
+                  </th>
+                  <th className="px-6 py-4 text-right text-sm font-semibold text-gray-600 dark:text-white">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {bookings.map((booking) => (
-                  <tr key={booking._id} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                  <tr
+                    key={booking._id}
+                    className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                  >
                     <td className="px-6 py-4">
                       <div className="flex items-center space-x-4">
                         <img
@@ -157,18 +175,27 @@ const MyBookings = () => {
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex flex-col">
-                        <span className="text-lg font-semibold text-gray-900 dark:text-white">{booking.name}</span>
-                        <span className="text-sm text-gray-500 dark:text-white/80">${booking.pricePerNight} per night</span>
+                        <span className="text-lg font-semibold text-gray-900 dark:text-white">
+                          {booking.name}
+                        </span>
+                        <span className="text-sm text-gray-500 dark:text-white/80">
+                          ${booking.pricePerNight} per night
+                        </span>
                       </div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center space-x-2 text-gray-700 dark:text-white/70">
                         <Calendar className="w-4 h-4" />
-                        <span>{new Date(booking.selectedDate).toLocaleDateString("en-US", {
-                          month: 'long',
-                          day: 'numeric',
-                          year: 'numeric'
-                        })}</span>
+                        <span>
+                          {new Date(booking.selectedDate).toLocaleDateString(
+                            "en-US",
+                            {
+                              month: "long",
+                              day: "numeric",
+                              year: "numeric",
+                            }
+                          )}
+                        </span>
                       </div>
                     </td>
                     <td className="px-6 py-4">
@@ -194,7 +221,12 @@ const MyBookings = () => {
                           Review
                         </button>
                         <button
-                          onClick={() => handleCancelBooking(booking._id, booking.selectedDate)}
+                          onClick={() =>
+                            handleCancelBooking(
+                              booking._id,
+                              booking.selectedDate
+                            )
+                          }
                           className="inline-flex items-center px-3 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                         >
                           <Trash2 className="w-4 h-4 mr-2" />
@@ -214,7 +246,9 @@ const MyBookings = () => {
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
             <div className="bg-white rounded-xl shadow-xl max-w-md w-full p-6">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Update Booking Date</h2>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Update Booking Date
+                </h2>
                 <button
                   onClick={() => setIsDateModalOpen(false)}
                   className="text-gray-400 hover:text-gray-500"
@@ -254,7 +288,9 @@ const MyBookings = () => {
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
             <div className="bg-white rounded-xl shadow-xl max-w-md w-full p-6">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Write a Review</h2>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Write a Review
+                </h2>
                 <button
                   onClick={() => setIsReviewModalOpen(false)}
                   className="text-gray-400 hover:text-gray-500"
@@ -262,13 +298,15 @@ const MyBookings = () => {
                   <X className="w-6 h-6" />
                 </button>
               </div>
-              
+
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Property
                   </label>
-                  <p className="text-gray-900 font-medium">{currentBooking?.name}</p>
+                  <p className="text-gray-900 font-medium">
+                    {currentBooking?.name}
+                  </p>
                 </div>
 
                 <div>
@@ -281,7 +319,9 @@ const MyBookings = () => {
                         key={star}
                         onClick={() => setReview({ ...review, rating: star })}
                         className={`p-1 ${
-                          review.rating >= star ? 'text-yellow-400' : 'text-gray-300'
+                          review.rating >= star
+                            ? "text-yellow-400"
+                            : "text-gray-300"
                         }`}
                       >
                         <Star className="w-6 h-6 fill-current" />
@@ -296,7 +336,9 @@ const MyBookings = () => {
                   </label>
                   <textarea
                     value={review.comment}
-                    onChange={(e) => setReview({ ...review, comment: e.target.value })}
+                    onChange={(e) =>
+                      setReview({ ...review, comment: e.target.value })
+                    }
                     rows={4}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Share your experience..."

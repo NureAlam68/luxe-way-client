@@ -40,8 +40,7 @@ const HotelMap = () => {
                 <Phone className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-medium text-white">Phone</h4>
-                  <p className="text-white/80 mt-1">+880 2-123456</p>
-                  <p className="text-white/80">+880 1711-123456</p>
+                  <p className="text-white/80 mt-1">+880 141 463 23 445</p>
                 </div>
               </div>
 
@@ -49,7 +48,7 @@ const HotelMap = () => {
                 <Mail className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-medium text-white">Email</h4>
-                  <p className="text-white/80 mt-1">info@luxewayhotel.com</p>
+                  <p className="text-white/80 mt-1">hello@luxeway.com</p>
                 </div>
               </div>
 

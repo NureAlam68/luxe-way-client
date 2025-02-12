@@ -39,6 +39,9 @@ const Navbar = () => {
       <li className="hover:text-[#c2772c]">
         <NavLink to="/aboutUs">About Us</NavLink>
       </li>
+      <li className="hover:text-[#c2772c]">
+        <NavLink to="/contactUs">Contact Us</NavLink>
+      </li>
     </>
   );
 

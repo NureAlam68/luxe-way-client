@@ -13,7 +13,7 @@ const FeaturedRooms = () => {
     const fetchFeaturedRooms = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/featured-rooms"
+          "https://luxe-way-server.vercel.app/featured-rooms"
         );
         setFeaturedRooms(response.data);
       } catch (error) {
@@ -52,8 +52,12 @@ const FeaturedRooms = () => {
             />
             <div className="p-4 flex flex-col justify-between flex-grow">
               <div>
-                <h3 className="text-xl font-semibold dark:text-white">{room.name}</h3>
-                <p className="text-sm text-gray-600 mt-2 dark:text-white/80">{room.description}</p>
+                <h3 className="text-xl font-semibold dark:text-white">
+                  {room.name}
+                </h3>
+                <p className="text-sm text-gray-600 mt-2 dark:text-white/80">
+                  {room.description}
+                </p>
               </div>
               <div className="mt-4 flex justify-between items-center">
                 <button

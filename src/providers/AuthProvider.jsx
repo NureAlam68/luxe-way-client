@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         setUser(currentUser);
         await axios.post(
-          "http://localhost:5000/jwt",
+          "https://luxe-way-server.vercel.app/jwt",
           {
             email: currentUser?.email,
           },
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
         );
       } else {
         setUser(currentUser);
-        await axios.get("http://localhost:5000/logout", {
+        await axios.get("https://luxe-way-server.vercel.app/logout", {
           withCredentials: true,
         });
       }

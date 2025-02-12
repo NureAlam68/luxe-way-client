@@ -12,7 +12,9 @@ const UserReviews = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/reviews");
+        const { data } = await axios.get(
+          "https://luxe-way-server.vercel.app/reviews"
+        );
         setReviews(data);
       } catch (error) {
         console.error("Error fetching reviews:", error);
@@ -53,7 +55,9 @@ const UserReviews = () => {
 
   return (
     <div className="mt-10 md:mt-[60px] lg:mt-[80px] 2xl:mt-[120px] max-w-[1400px] mx-auto">
-      <h1 className="text-2xl md:text-3xl font-bold text-center mb-6 dark:text-white">User Reviews</h1>
+      <h1 className="text-2xl md:text-3xl font-bold text-center mb-6 dark:text-white">
+        User Reviews
+      </h1>
       <div className="px-2 md:px-6 2xl:px-0">
         {reviews.length > 0 ? (
           reviews.length > 1 ? (

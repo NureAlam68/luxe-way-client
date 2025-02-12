@@ -17,13 +17,16 @@ const Rooms = () => {
     const fetchRooms = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:5000/rooms", {
-          params: {
-            minPrice,
-            maxPrice,
-            sortOrder,
-          },
-        });
+        const response = await axios.get(
+          "https://luxe-way-server.vercel.app/rooms",
+          {
+            params: {
+              minPrice,
+              maxPrice,
+              sortOrder,
+            },
+          }
+        );
         setRooms(response.data);
       } catch (error) {
         console.error("Error fetching rooms:", error);

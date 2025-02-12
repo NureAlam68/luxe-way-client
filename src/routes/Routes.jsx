@@ -9,6 +9,7 @@ import RoomDetails from "../pages/RoomDetails";
 import MyBookings from "../pages/MyBookings";
 import PrivetRoute from "./PrivateRoute";
 import AboutUs from "../pages/AboutUs";
+import Contact from "../pages/Contact";
 
 
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
             {
                 path: "/aboutUs",
                 element: <AboutUs></AboutUs>
+            },
+            {
+                path: "/contactUs",
+                element: <Contact></Contact>
             }
         ]
     }

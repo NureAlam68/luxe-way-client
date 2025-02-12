@@ -5,8 +5,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
-import { Star, Users, Maximize2, DollarSign, MapPin } from 'lucide-react';
-import clsx from 'clsx';
+import { Star, Users, Maximize2, DollarSign, MapPin } from "lucide-react";
+import clsx from "clsx";
 import useAuth from "../hookes/useAuth";
 import useAxiosSecure from "../hookes/seAxiosSecure";
 import Loading from "../components/Loading";
@@ -24,12 +24,12 @@ const RoomDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/room/${id}`)
+      .get(`https://luxe-way-server.vercel.app/room/${id}`)
       .then((response) => setRoom(response.data))
       .catch((error) => console.error(error));
 
     axios
-      .get(`http://localhost:5000/reviews/${id}`)
+      .get(`https://luxe-way-server.vercel.app/reviews/${id}`)
       .then((response) => setReviews(response.data))
       .catch((error) => console.error(error));
   }, [id]);
@@ -65,20 +65,32 @@ const RoomDetails = () => {
   if (!room) return <Loading />;
 
   const amenities = [
-    { icon: <Users className="w-5 h-5" />, label: `${room.capacity} persons`, title: "Capacity" },
-    { icon: <Maximize2 className="w-5 h-5" />, label: `${room.size} sqm`, title: "Room Size" },
-    { icon: <DollarSign className="w-5 h-5" />, label: `$${room.pricePerNight}/night`, title: "Price" },
+    {
+      icon: <Users className="w-5 h-5" />,
+      label: `${room.capacity} persons`,
+      title: "Capacity",
+    },
+    {
+      icon: <Maximize2 className="w-5 h-5" />,
+      label: `${room.size} sqm`,
+      title: "Room Size",
+    },
+    {
+      icon: <DollarSign className="w-5 h-5" />,
+      label: `$${room.pricePerNight}/night`,
+      title: "Price",
+    },
     { icon: <MapPin className="w-5 h-5" />, label: "City View", title: "View" },
   ];
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className="mt-10 md:mt-[60px] lg:mt-[80px] px-4 md:px-8 2xl:px-0 min-h-screen max-w-[1400px] mx-auto"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="relative overflow-hidden rounded-2xl"
@@ -92,12 +104,16 @@ const RoomDetails = () => {
 
         <div className="space-y-6">
           <div>
-            <h1 className="text-4xl font-bold mb-2 text-gray-900 dark:text-white">{room.name}</h1>
+            <h1 className="text-4xl font-bold mb-2 text-gray-900 dark:text-white">
+              {room.name}
+            </h1>
             <div className="flex items-center gap-2 text-yellow-500">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-current" />
               ))}
-              <span className="text-gray-600 dark:text-gray-300">({room.totalReviews} reviews)</span>
+              <span className="text-gray-600 dark:text-gray-300">
+                ({room.totalReviews} reviews)
+              </span>
             </div>
           </div>
 
@@ -115,8 +131,12 @@ const RoomDetails = () => {
                     {amenity.icon}
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{amenity.title}</p>
-                    <p className="font-semibold dark:text-white">{amenity.label}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {amenity.title}
+                    </p>
+                    <p className="font-semibold dark:text-white">
+                      {amenity.label}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -124,8 +144,12 @@ const RoomDetails = () => {
           </div>
 
           <div className="prose dark:prose-invert">
-            <h2 className="text-2xl font-semibold mb-2 dark:text-white">Description</h2>
-            <p className="text-gray-600 dark:text-gray-300">{room.description}</p>
+            <h2 className="text-2xl font-semibold mb-2 dark:text-white">
+              Description
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300">
+              {room.description}
+            </p>
           </div>
 
           <motion.button
@@ -155,7 +179,9 @@ const RoomDetails = () => {
           animate={{ opacity: 1, y: 0 }}
           className="mt-16"
         >
-          <h2 className="text-3xl font-bold mb-8 dark:text-white">Guest Reviews</h2>
+          <h2 className="text-3xl font-bold mb-8 dark:text-white">
+            Guest Reviews
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {reviews.map((review, index) => (
               <motion.div
@@ -172,24 +198,28 @@ const RoomDetails = () => {
                     </span>
                   </div>
                   <div>
-                    <h3 className="font-semibold dark:text-white">{review.username}</h3>
+                    <h3 className="font-semibold dark:text-white">
+                      {review.username}
+                    </h3>
                     <p className="flex items-center gap-1 dark:text-white">
-                    <span className="text-yellow-500 flex">
-                      {Array(Number(review.rating))
-                        .fill(0)
-                        .map((_, i) => (
-                          <FaStar key={i} />
-                        ))}
-                    </span>
-                  </p>
+                      <span className="text-yellow-500 flex">
+                        {Array(Number(review.rating))
+                          .fill(0)
+                          .map((_, i) => (
+                            <FaStar key={i} />
+                          ))}
+                      </span>
+                    </p>
                   </div>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300">{review.comment}</p>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {review.comment}
+                </p>
                 <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-                  {new Date(review.timestamp).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
+                  {new Date(review.timestamp).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
                   })}
                 </p>
               </motion.div>
@@ -213,17 +243,27 @@ const RoomDetails = () => {
             animate={{ scale: 1, opacity: 1 }}
             className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-md m-4"
           >
-            <h2 className="text-2xl font-bold mb-6 dark:text-white">Complete Your Booking</h2>
-            
+            <h2 className="text-2xl font-bold mb-6 dark:text-white">
+              Complete Your Booking
+            </h2>
+
             <div className="space-y-6">
               <div className="flex items-center justify-between pb-4 border-b dark:border-gray-700">
-                <span className="text-gray-600 dark:text-gray-300">Room Type</span>
-                <span className="font-semibold dark:text-white">{room.name}</span>
+                <span className="text-gray-600 dark:text-gray-300">
+                  Room Type
+                </span>
+                <span className="font-semibold dark:text-white">
+                  {room.name}
+                </span>
               </div>
-              
+
               <div className="flex items-center justify-between pb-4 border-b dark:border-gray-700">
-                <span className="text-gray-600 dark:text-gray-300">Price per night</span>
-                <span className="font-semibold dark:text-white">${room.pricePerNight}</span>
+                <span className="text-gray-600 dark:text-gray-300">
+                  Price per night
+                </span>
+                <span className="font-semibold dark:text-white">
+                  ${room.pricePerNight}
+                </span>
               </div>
 
               <div className="space-y-2">
