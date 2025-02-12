@@ -2,9 +2,26 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/hotel.svg";
 import "./Navbar.css";
 import useAuth from "../hookes/useAuth";
+import toggle_light from "../assets/night.png"
+import toggle_dark from "../assets/day.png"
+import { useEffect, useState } from "react";
 
+// eslint-disable-next-line react/prop-types
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+    }
+    localStorage.setItem("theme", theme)
+  }, [theme])
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"))
+  }
 
   const links = (
     <>
@@ -25,9 +42,10 @@ const Navbar = () => {
     </>
   );
 
+
   return (
     <div className="pt-16">
-      <div className="fixed top-0 left-0 w-full bg-[#e9e6e3] shadow-sm z-50">
+      <div className="fixed top-0 left-0 w-full bg-[#e9e6e3] shadow-sm z-50 ">
         <div className="navbar lg:gap-2 md:px-10 lg:px-5 xl:px-0 rounded-[16px] py-2 md:py-4 max-w-[1400px] mx-auto">
           <div className="navbar-start">
             <div className="dropdown z-50">
@@ -72,6 +90,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="navbar-end">
+            <img onClick={() => {toggleTheme()}} src={theme == 'light' ? toggle_light : toggle_dark} alt="" className="w-10 cursor-pointer mr-5"/>
             {user ? (
               <div className="dropdown dropdown-end z-50">
                 <div

@@ -12,15 +12,12 @@ const Rooms = () => {
     // Fetch data from the MongoDB API
     const fetchRooms = async () => {
       try {
-        const response = await axios.get(
-          "https://luxe-way-server.vercel.app/rooms",
-          {
-            params: {
-              minPrice,
-              maxPrice,
-            },
-          }
-        );
+        const response = await axios.get("http://localhost:5000/rooms", {
+          params: {
+            minPrice,
+            maxPrice,
+          },
+        });
         setRooms(response.data);
       } catch (error) {
         console.error("Error fetching rooms:", error);

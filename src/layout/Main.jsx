@@ -6,9 +6,10 @@ import Footer from "../components/Footer";
 
 
 
+
 const Main = () => {
     return (
-        <div className="font-gilda">
+        <div className={`font-gilda dark:bg-black`}>
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
