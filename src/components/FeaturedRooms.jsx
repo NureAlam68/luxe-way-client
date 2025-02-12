@@ -58,7 +58,7 @@ const FeaturedRooms = () => {
               <div className="mt-4 flex justify-between items-center">
                 <button
                   onClick={() => navigate(`/room/${room._id}`)}
-                  className="bg-[#C19B76] hover:bg-black dark:bg-black text-white font-semibold px-4 py-2 transition-colors duration-300"
+                  className="bg-[#C19B76] hover:bg-black dark:bg-black text-white font-semibold px-4 py-2 transition-colors duration-300 rounded-lg"
                 >
                   See More
                 </button>
