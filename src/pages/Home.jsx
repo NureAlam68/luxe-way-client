@@ -28,9 +28,9 @@ const Home = () => {
       <Banner />
       <HotelMap />
       <FeaturedRooms></FeaturedRooms>
-      <UserReviews></UserReviews>
       <Facilities />
       <PromotionsSection />
+      <UserReviews></UserReviews>
 
       {/* Modal */}
       {isOfferModalOpen && (
