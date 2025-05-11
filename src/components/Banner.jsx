@@ -55,7 +55,7 @@ export default function Banner() {
           prevEl: '.swiper-button-prev',
         }}
         modules={[Autoplay, Pagination, Navigation, EffectFade]}
-        className="mySwiper h-[90vh]"
+        className="mySwiper h-[75vh]"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
