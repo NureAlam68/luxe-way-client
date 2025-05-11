@@ -35,7 +35,15 @@ const FeaturedRooms = () => {
       >
         Top-rated Rooms
       </motion.h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4 md:mt-8 lg:mt-10 px-4 md:px-8 2xl:px-0">
+      <motion.p
+       variants={fadeIn("up", 0.2)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+      className="md:text-xl text-gray-600 text-center dark:text-white/80">
+            Guest-favorite rooms known for comfort, service, and quality.
+          </motion.p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4 md:mt-8 lg:mt-10 px-4 md:px-8 2xl:px-0">
         {featuredRooms.map((room) => (
           <motion.div
             variants={fadeIn("up", 0.2)}

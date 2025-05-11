@@ -39,7 +39,7 @@ const PromotionsSection = () => {
             }].map((offer, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between bg-gray-50 p-4 rounded-lg shadow-sm border border-[#C19B76] transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+                className="flex items-center justify-between bg-gray-50 dark:bg-gray-900 p-4 rounded-lg shadow-sm border border-[#C19B76] transition-transform duration-300 hover:scale-105 hover:shadow-lg"
               >
                 <div className="flex items-center group gap-4">
                   <img
@@ -48,8 +48,8 @@ const PromotionsSection = () => {
                     className="w-20 h-20 md:w-[100px] md:h-[100px] rounded-md object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   <div>
-                    <p className="font-bold text-gray-800">{offer.duration}</p>
-                    <p className="text-gray-600">{offer.title}</p>
+                    <p className="font-bold text-gray-800 dark:text-gray-100">{offer.duration}</p>
+                    <p className="text-gray-600 dark:text-gray-300">{offer.title}</p>
                   </div>
                 </div>
                 <p className="text-lg font-bold text-[#C19B76]">{offer.price}</p>
